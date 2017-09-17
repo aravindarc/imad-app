@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-    'articleOne': {
+    'article-one': {
         title: 'Article One | Aravinda Kumar',
         heading: 'Article One',
         date: 'Sep 17, 2017',
@@ -20,7 +20,7 @@ var articles = {
                         This is the content for my first article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
                     </p>`
     },
-    'articleTwo': {
+    'article-two': {
         title: 'Article Two | Aravinda Kumar',
         heading: 'Article Two',
         date: 'Sep 17, 2017',
@@ -34,7 +34,7 @@ var articles = {
                         This is the content for my second article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
                     </p>`
     },
-    'articleThree': {
+    'article-three': {
         title: 'Article Three | Aravinda Kumar',
         heading: 'Article Three',
         date: 'Sep 17, 2017',
