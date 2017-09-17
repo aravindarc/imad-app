@@ -9,25 +9,25 @@ function moveRight() {
     if(hitRight !== true ) {
         marginLeft += 10;
         img.style.marginLeft = marginLeft + 'px';
-        if(marginLeft === 100 ){
+        if(marginLeft === 1000 ){
             hitRight = true;
             hitLeft = false;
-            marginLeft = -100;
+            marginLeft = -1000;
         }
     }
     else if(hitLeft !== true) {
         marginRight += 10;
         img.style.marginRight = marginRight + 'px';
-        if(marginRight === 100 ){
+        if(marginRight === 1000 ){
             hitLeft = true;
             hitRight = false;
-            marginRight = -100;
+            marginRight = -1000;
         }
     }
 }
 
 img.onclick = function () {
-    var interval = setInterval(moveRight, 50);
+    var interval = setInterval(moveRight, 20);
 };
 
 function animate() {
