@@ -12,7 +12,7 @@ function moveRight() {
         if(marginLeft === 1000 ){
             hitRight = true;
             hitLeft = false;
-            marginLeft = -100;
+            marginLeft -= 500;
         }
     }
     else if(hitLeft !== true) {
@@ -21,7 +21,7 @@ function moveRight() {
         if(marginRight === 1000 ){
             hitLeft = true;
             hitRight = false;
-            marginRight = -100;
+            marginRight -= 500;
         }
     }
 }
