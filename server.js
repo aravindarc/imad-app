@@ -5,19 +5,49 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article One | Aravinda Kumar',
-    heading: 'Article One',
-    date: 'Sep 17, 2017',
-    content:`   <p>
-                    This is the content for my first article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
-                </p>
-                <p>
-                    This is the content for my first article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
-                </p>
-                <p>
-                    This is the content for my first article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
-                </p>`
+var articles = {
+    'articleOne': {
+        title: 'Article One | Aravinda Kumar',
+        heading: 'Article One',
+        date: 'Sep 17, 2017',
+        content:`   <p>
+                        This is the content for my first article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>
+                    <p>
+                        This is the content for my first article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>
+                    <p>
+                        This is the content for my first article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>`
+    },
+    'articleTwo': {
+        title: 'Article Two | Aravinda Kumar',
+        heading: 'Article Two',
+        date: 'Sep 17, 2017',
+        content:`   <p>
+                        This is the content for my second article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>
+                    <p>
+                        This is the content for my second article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>
+                    <p>
+                        This is the content for my second article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>`
+    },
+    'articleThree': {
+        title: 'Article Three | Aravinda Kumar',
+        heading: 'Article Three',
+        date: 'Sep 17, 2017',
+        content:`   <p>
+                        This is the content for my third article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>
+                    <p>
+                        This is the content for my third article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>
+                    <p>
+                        This is the content for my third article, nothing significant just what got into my mind got typed in here, I think I'll have no problem in clearing the IMAD course, but the Data Analytics course is a wee bit harder than I hoped it to be, I'll try clearing it, if could'nt then let me clear it in the next semester.
+                    </p>`
+    }
 };
 
 function createTemplate (data) {
@@ -61,16 +91,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-    res.send(createTemplate(articleOne));
-});
-
-app.get('/article-two', function (req, res) {
-    res.sendfile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
-    res.sendfile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function (req, res) {
+    var articleNameLocal = req.params.articleName;
+    res.send(createTemplate(articles[articleNameLocal]));
 });
 
 app.get('/ui/style.css', function (req, res) {
